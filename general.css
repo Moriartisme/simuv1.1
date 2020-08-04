@@ -1,0 +1,176 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	/*font-size: 100%;
+	font: inherit;*/
+	vertical-align: baseline;
+	box-sizing: border-box;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	reponse: '';
+	reponse: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+@font-face {
+  font-family: 'emp';
+  src:  url('/credit-immobilier/formulaire-mob/fonts/emp.eot?qfbak7');
+  src:  url('/credit-immobilier/formulaire-mob/fonts/emp.eot?qfbak7#iefix') format('embedded-opentype'),
+    url('/credit-immobilier/formulaire-mob/fonts/emp.ttf?qfbak7') format('truetype'),
+    url('/credit-immobilier/formulaire-mob/fonts/emp.woff?qfbak7') format('woff'),
+    url('/credit-immobilier/formulaire-mob/fonts/emp.svg?qfbak7#emp') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+#simulateur-box-achylles{width:90%; margin-top:5%; margin-left:5%; margin-bottom: 5%; padding: 20px; background:#fff;box-shadow: 7px 7px 60px 0 #f2f3f6;border-radius: 20px;}
+#simulateur-box-achylles .right-side-content{width:50%;margin-left:2.5%;margin-top:2.5%; background: transparent; border-radius: 10px;}
+#simulateur-box-achylles .left-side-content{width:45%; height:600px; position: sticky !important; top:0;margin-left:2.5%; margin-top:2.5%; padding:20px; background:#fff;box-shadow: 7px 7px 60px 0 #f2f3f6;border-radius: 20px;}
+#simulateur-achylles{max-width:1280px}
+#simulateur-achylles > * {font-family: "Poppins", verdana;}
+
+[class^="icon_"], [class*=" icon_"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  /*line-height: 1;*/
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#simulateur-achylles .onglet_simulation{border:2px solid #f0f1f6;}
+#simulateur-achylles .onglet_simulation{border:2px solid #f0f1f6;}
+#simulateur-achylles .aff_reponse{border-bottom:2px solid #f0f1f6;border-right:2px solid #f0f1f6;border-left:2px solid #f0f1f6;}
+#simulateur-achylles .aff_reponse_all{border-bottom:2px solid #f0f1f6;border-right:2px solid #f0f1f6;border-left:2px solid #f0f1f6;}
+#simulateur-achylles .simulateur .rubrique{border:0px solid #f0f1f6; border-radius: 0px;}
+#simulateur-achylles .simulateur-box_c{border: 0px solid #f0f1f6; margin-top:30px; border-radius:10px;}
+
+.comments{
+	font-size:10px;
+}
+
+
+
+
+[class*='icon_']:before{display:inline-block;font-family:'emp';font-style:normal;font-weight:normal;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;z-index:1}
+.icon_amor:before {
+  content: "\e92b";
+}
+.icon_endettement:before {
+  content: "\e92d";
+}
+
+.icon_contact:before {
+  content: "\e943";
+}
+.icon_calendar:before {
+  content: "\e90b";
+}
+
+.icon_bank:before {
+  content: "\e907";
+}
+.icon_wallet:before {
+  content: "\e90c";
+}
+.icon_taeg:before {
+  content: "\e90d";
+}
+
+.icon_money:before {
+  content: "\e904";
+}
+.icon_ptz:before {
+  content: "\e92c";
+}
+
+.icon_pas:before {
+  content: "\e927";
+}
+.icon_crd:before {
+  content: "\e92a";
+}
+.icon_calendar2:before {
+  content: "\e90e";
+}
+
+.icon_cied:before {
+  content: "\e928";
+}
+.icon_pel:before {
+  content: "\e923";
+}
+.icon_cel:before {
+  content: "\e924";
+}
+
+.icon_pr:before {
+  content: "\e929";
+}
+.icon_cif:before {
+  content: "\e926";
+}
+
+.icon_captz:before {
+  content: "\e925";
+}
+.icon_lissage:before {
+  content: "\e91d";
+}
+
+
+
+
+#simulateur-achylles .simulateur .rubrique_l{border-top:2px solid #f0f1f6;border-right:2px solid #f0f1f6;}
+#simulateur-achylles .simulateur .rubrique_r{border-top:2px solid #f0f1f6;border-left:2px solid #f0f1f6;}
+
+#simulateur-achylles .form_on{border-bottom: 2px solid #f0f1f6;border-right: 2px solid #f0f1f6;border-left: 2px solid #f0f1f6;}
+
+@media only screen and (max-width:1024px) {
+	
+	#simulateur-achylles .simulateur .rubrique_r{border-right: 2px solid #f0f1f6; }
+	#simulateur-achylles .simulateur .rubrique_l{border-top:none;border-left: 2px solid #f0f1f6; }
+	
+
+	
+}
+
+

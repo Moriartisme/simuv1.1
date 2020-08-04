@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Simulateur Achylles</title>
+	<META NAME="description" CONTENT="Empruntis, courtier en cr&eacute;dit immobilier en ligne vous accompagne. Utilisez nos outils de simulation de cr&eacute;dit&nbsp;: Calculer sa capacit&eacute; d'achat immobilier.">
+	<meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel='stylesheet' type='text/css' href='general.css'>
+	<link rel='stylesheet' type='text/css' href='style.css'>
+	<link href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet'>
+	<script>
+
+	</script>
+</head>
+
+<body onload='' style=''>
+	
+	<div id="simulateur-box-achylles">
+		
+		<div id="simulateur-achylles">
+					
+			<h1 style="display:none;">Evaluez votre capacité d'emprunt</h1>
+
+			<div class="intro_txt" style="display:none;"><p class='txt_calculette'>Cette calculette vous permet d'obtenir rapidement une estimation de votre <strong>capacit&eacute; totale d'achat</strong>. Vous conna&icirc;trez le <strong>montant maximum de votre emprunt</strong> et le <strong>montant maximum du bien que vous pouvez financer</strong>.</p></div>		
+			
+			<form name="criteres" method="post" action="">
+				<input type='hidden' name='code' value='SR5GJD'>
+				<input type='hidden' name='pagevoulue' value='calcu'>
+				<input type='hidden' name='act' value='cap2'>
+				<input type='hidden' name='coulfondarriere' value='FFFFFF'>
+				<input type='hidden' name='coulfond' value='fabc05'>
+				<input type='hidden' name='type_champ_txt' value='text'>
+				<input type='hidden' name='simulation_encours' value='1'>
+				<input type='hidden' name='simulation_total' value='1'>
+			</form>
+
+			<div id="onglet_simulations" style="display:none;">
+				<div class="onglet_simulation visu_on" data-simulation=1 id="onglet_simul_1"><span>Simulation n&deg;1<i class="result_capacite_achat"></i></span></div>
+				<div class="onglet_simulation ajout" data-simulation="ajout"><span>+ Ajouter une simulation</span></div>
+			</div>
+
+			<div class="simulateur" id="simul_1" data-formsimulation=1>
+			
+			<!-- <div style="display:flex;"> -->
+			<div style="display:flex;">
+			
+			<div class="left-side-content">	
+			
+			<p class="libelle">Votre capacité d'emprunt en tant que profil <span id="result-persona-choice" style="font-weight:bold;"></span> est de :</p><br/>
+				<div class="resultat">
+					<h2 class="back icon icon_wallet">Votre capacit&eacute; d'achat : <span class="result_cap2" value="0"></span>&euro; <span class="result_h2">(hors PTZ+)</span></h2>
+					
+						<div class="aff_reponse">
+							<center>
+								<table class="cap_achat">
+									<tr>
+										<td>Montant Empruntable :</td>
+										<td colspan="2" class="right"><span class="montant_capacite"></span> &euro;</td>
+									</tr>
+									<tr>
+										<td>Apport personnel :</td>
+										<td class="resultat">+</td>
+										<td class="right"><span class="mont_apport_perso">0</span> &euro;</td>
+									</tr>
+									<tr>
+										<td>Frais de notaire :</td>
+										<td class="resultat">-</td>
+										<td class="right"><span class="mont_frais_notaire">0</span> &euro;</td>
+									</tr>
+									<tr>
+										<td class="resultat">Capacit&eacute; d'achat :</td>
+										<td colspan="2" class="right bordertop resultat"><span class="result_cap2"></span> &euro;</td>
+									</tr>
+								</table>
+							</center>
+							
+						
+						</div>
+						
+						<div class="footer un_btp">
+							<div class="btp"><a href="/indexb.php?code=SR5GJD&page=simulation&mot_cle=Calculette_achat"  id="btp_comparerb" class="btp_orange">Comparer gratuitement les offres</a></div>
+						</div>				
+				</div>
+			</div>
+			
+			<!-- right side content -->
+			<div class="right-side-content">
+								
+				<form name="formulaire_1" method="post" action="" onSubmit="return mortgage_function()">
+					<input type='hidden' name='mensualite_tempo' value='0'>
+					<div class="simulateur-box">
+					
+						<div class="rubrique">
+							<div class="rub_contenu">
+								<h2 id="couple">Vos revenus</h2>
+
+								<div class="choice-trigger">	
+									<p class="libelle">Vous empruntez :</p>
+									<div id="emp-trigger"><p class="libelle" id="btn-single" style="color:#fff;">Seul.e</p></div>
+									<div id="coemp-trigger"><p class="libelle" id="btn-couple" style="background-color:#f1f2f7; color:#000;">A deux</p></div>
+								</div>
+								<div class="choice-persona" style="display:flex; flex-wrap:nowrap;width:100%">	
+									<div class="personaemp">
+										<p class="libelle">Situation emprunteur</p>
+										<input type="radio" id="personacdi" name="persona-type-emp" value="CDI">
+										<label for="personacdi"><p for="personacdi" class="libelle">en CDI</p></label>
+
+										<input type="radio" id="personaindie" name="persona-type-emp" value="indépendant">
+										<label for="personaindie"><p for="personaindie" class="libelle">Indépendant.e</p></label>
+
+										<input type="radio" id="personacdd" name="persona-type-emp" value="CDD">
+										<label for="personacdd"><p for="personacdd" class="libelle">en CDD</p></label>
+
+										<input type="radio" id="personajobber" name="persona-type-emp" value="intérimaire">
+										<label for="personajobber"><p for="personajobber" class="libelle">Intérimaire</p></label><br/>
+
+										<input type="radio" id="personaret" name="persona-type-emp" value="retraité.e">
+										<label for="personaret"><p for="personaret" class="libelle">Retraité.e</p></label>		
+										
+										<input type="radio" id="personaexpat" name="persona-type-emp" value="expatrié.e">
+										<label for="personaexpat"><p for="personaexpat" class="libelle">Expatrié.e</p></label>								
+									</div>
+								
+									<div class="personacoemp" style="display:none;">
+										<p class="libelle">Situation co-emprunteur</p>
+										<input type="radio" id="personacoempcdi" name="persona-type-coemp" value="coCDI">
+										<label for="indie"><p class="libelle">en CDI</p></label>
+
+										<input type="radio" id="personacoempindie" name="persona-type-coemp" value="coindie">
+										<label for="indie"><p class="libelle">Indépendant.e</p></label>
+
+										<input type="radio" id="personacoempcdd" name="persona-type-coemp" value="cocdd">
+										<label for="cdd"><p class="libelle">en CDD</p></label>
+
+										<input type="radio" id="personacoempjobber" name="persona-type-coemp" value="cojobber">
+										<label for="jobber"><p class="libelle">Intérimaire</p></label></label>
+
+										<input type="radio" id="personacoempret" name="persona-type-coemp" value="coretired"><br/>
+										<label for="retired"><p class="libelle">Retraité.e</p></label></label>			
+										
+										<input type="radio" id="personacoempexpat" name="persona-type-coemp" value="coexpat">
+										<label for="cdd"><p class="libelle">Expatrié</p></label></label>								
+									</div>							
+									
+								</div>
+								<div>
+									<div id="cont_rev_emp">
+										<p class="libelle">Salaire emprunteur <span class="comments">(net avant impôt):</span></p>
+										<label class="inputbox montantp_e input_e" for="rev_emp"><input type="text" data-type="montant" data-ob =1 id="rev_emp" name="rev_emp" value="0" maxlength="5" placeholder="0"></label>
+										<span class="separateur_x"> sur </span>
+										<label class="selectbox select_mois select_on" for="mois_salaire_emp"><select id="mois_salaire_emp" name="mois_salaire_emp"><option value="12">12 mois </option><option value="13">13 mois </option><option value="14">14 mois </option><option value="15">15 mois </option></select></label>
+
+									</div>
+									
+									<div id="cont_rev_coemp" style="display:none;">
+										<p class="libelle">Salaire co-emprunteur <span class="comments">(net avant impôt):</span></p>
+										<label class="inputbox montantp_e input_e" for="rev_coemp"><input type="text" data-ob =0  data-type="montant" id="rev_coemp" name="rev_coemp" value="" maxlength="5" placeholder="0"></label>
+										<span class="separateur_x"> sur </span>
+										<label class="selectbox select_mois select_on" for="mois_salaire_co_emp"><select id="mois_salaire_co_emp" name="mois_salaire_co_emp"><option value="12">12 mois </option><option value="13">13 mois </option><option value="14">14 mois </option><option value="15">15 mois </option></select></label>
+									</div>
+								</div>
+								<div class="aeration"></div>
+								
+							</div>
+							<div class="sep_centre"></div>
+							<div class="rub_contenu">
+								<h2>Vos charges hors acquisition</h2>
+								<div id="cont_rev_autres">
+									<p class="libelle">Autres revenus mensuels : <span class="info_bulle" data-title="N'inscrivez pas votre mensualit&eacute; de cr&eacute;dit immobilier, si votre projet vise &agrave; l'acquisition de votre r&eacute;sidence principale apr&egrave;s revente de votre bien actuel">i</span></p>
+									<label class="inputbox montant_e_m input_e_m" for="rev_autres"><input type="text" data-type="montant" data-ob=0 id="rev_autres" name="rev_autres" value=""  maxlength="6" placeholder="0"></label>
+								</div>
+								<div id="cont_charges_autres">
+									<p class="libelle">Loyers &agrave; charge apr&egrave;s acquisition :</p>
+									<label class="inputbox montant_e_m input_e_m" for="chg_autres"><input type="text" data-type="montant" data-ob=0 id="chg_autres" name="chg_autres" value=""  maxlength="6" placeholder="0"></label>
+								</div>
+								
+								<div id="cont_charges_credits">
+									<p class="libelle">Cr&eacute;dits en cours apr&egrave;s acquisition :</p>
+									<label class="inputbox montant_e_m input_e_m" for="chg_credits"><input type="text" data-type="montant" data-ob=0 id="chg_credits" name="chg_credits" value=""  maxlength="6" placeholder="0"></label>
+								</div>
+								
+								<div id="cont_charges_pensions">
+									<p class="libelle">Pensions vers&eacute;es &eacute;ventuelles :</p>
+									<label class="inputbox montant_e_m input_e_m" for="chg_pensions"><input type="text" data-type="montant" data-ob=0 id="chg_pensions" name="chg_pensions" value=""  maxlength="6" placeholder="0"></label>
+								</div>
+								<div class="aeration"></div>
+							</div>
+						<div class="sep_centre"></div>
+					</div>
+					</div>
+					
+					<div class="simulateur-box_c">				
+
+						<h2 class="project-title">Votre projet</h2>
+
+						<div class="simulateur-box">
+							<div class="rubrique_r">
+								<div class="rub_contenu">
+									
+									<div id="cont_nature_bien">
+										<input type="hidden" name="idnature" value="1">
+										<p class="libelle">Type du bien :</p>
+										<label class="liste_choix_on" data-value=1 data-name="idnature">Logement Neuf</label>
+										<label class="liste_choix fin" data-value=2 data-name="idnature">Logement Ancien</label>
+									</div>
+									
+									<div id="cont_charges_autres">
+										<p class="libelle">Mensualit&eacute; : <span class="info_bulle" data-title="Mensualit&eacute;s calcul&eacute;es à partir des donn&eacute;es pr&eacute;c&eacute;demment saisies et bas&eacute;es sur un taux d'endettement id&eacute;al de 33 % ">i</span></p>
+										<label class="inputbox montant_e_m input_e_m" for="mensualite_pret"><input type="text" data-type="montant" data-ob=0 id="mensualite_pret" name="mensualite_pret" value=""  maxlength="4" placeholder="0"></label>
+									</div>
+									
+									
+									<div id="cont_apport">
+										<p class="libelle">Apport personnel : <span class="info_bulle" data-title="Y compris l'apport constitu&eacute; par la vente de votre bien actuel">i</span></p>
+										<label class="inputbox montant_e input_e" for="montant_apport"><input type="text" data-ob=0 data-type="montant" id="montant_apport" name="montant_apport" value="" maxlength="10" placeholder="0"></label>
+
+										<div class="cont_slider">
+											<div class="barre_apport">
+												<span class="step0"></span>
+												<span class="step1"></span>
+												<span class="step2"></span>
+												<span class="step3"></span>
+												<span class="step4"></span>
+												<span class="step5"></span>
+											</div>
+											<div class="slider" id="slider_apport_perso_1"></div>
+										</div>
+									</div>
+									
+									<div style="width:100%; display:flex;">
+									<div id="cont_duree" style="width:47.5%;">
+										<p class="libelle">Dur&eacute;e du cr&eacute;dit :</p>
+										<label class="inputbox montant_e input_ans_on" for="duree_emprunt"><input type="text" data-ob=0 data-type="montant" id="duree_emprunt" name="duree_emprunt" value="" maxlength="2" placeholder="0"></label>
+
+										
+										<div class="cont_slider">
+											<div class="barre_duree">
+												<span class="step7"></span>
+												<span class="step10"></span>
+												<span class="step15"></span>
+												<span class="step20"></span>
+												<span class="step25"></span>
+												<span class="step30"></span>
+											</div>
+											<div class="slider" id="slider_duree_credit_1"></div>
+										</div>
+									</div>
+									<div class="sep_centre"></div>
+									<div id="cont_taux" style="width:47.5%;">
+										<p class="libelle">Taux d'int&eacute;r&ecirc;t : <span class="info_bulle" data-title="hors coût d'assurance">i</span></p>
+										<label class="inputbox montant_e input_p_on" for="taux"><input type="text" data-ob=0 data-type="taux" id="taux" name="taux" value="" maxlength="4" placeholder="0"></label>
+
+										<div class="cont_slider">
+											
+											<div class="barre_taux_i">
+												<span class="step0"></span>
+												<span class="step1"></span>
+												<span class="step2"></span>
+												<span class="step3"></span>
+												<span class="step4"></span>
+												<span class="step5"></span>
+											</div>
+											<div class="slider" id="slider_taux_interet_1"></div>
+										</div>
+
+									</div>
+									</div>
+
+									<div class="aeration"></div>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+				</form>
+			</div>
+			
+			</div>
+			</div>
+		</div>
+	</div>
+
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script type='text/javascript' src='https://code.jquery.com/ui/1.12.0/jquery-ui.min.js'></script>
+<script type='text/javascript' src='general.js'></script>
+<script type='text/javascript' src='logic.js'></script>
+
+
+<script type='text/javascript'>
+var tauxDD = [2,10,12,15,20,25,30];
+var tauxVA = [0.75,0.9,1,1.10,1.30,1.65,2.18];
+	
+$("input:radio[name='persona-type-emp']").click(function(){
+$("#result-persona-choice").html(this.value);
+})
+
+</script>
+
+
+</body>
+</html>
