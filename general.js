@@ -624,28 +624,13 @@ function Calcul_capacite(){
 }
 
 
-$("#coemp-trigger").click(function(){
-  $("#cont_rev_coemp, .personacoemp").show();
-  $('#btn-couple').css({
-        'background-color': '#0091ff',
-        'color': '#fff',
-    });
-	$('#btn-single').css({
-        'background-color': '#f1f2f7',
-        'color': '#000',
-    });
-});
-$("#emp-trigger").click(function(){
-  $("#cont_rev_coemp, .personacoemp").hide();
-  $('#btn-couple').css({
-        'background-color': '#f1f2f7',
-        'color': '#000',
-    });
-	$('#btn-single').css({
-        'background-color': '#0091ff',
-        'color': '#fff',
-    });
-});
+function yesnoCheck() {
+    if (document.getElementById('coemp-trigger').checked) {
+        document.getElementById('personacoemp').style.display = 'block';
+    }
+    else document.getElementById('personacoemp').style.display = 'none';
+
+}
 
 
 $("#emp-trigger").on('focusout', mortgage_function); btn-single

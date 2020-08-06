@@ -47,7 +47,7 @@
 			
 			<div class="left-side-content">	
 			
-			<p class="libelle">Votre capacité d'emprunt en tant que profil <span id="result-persona-choice" style="font-weight:bold;"></span> est de :</p><br/>
+			<p class="libelle">Votre capacité d'emprunt <span id="result-loan-choice" style="font-weight:bold;"></span> en tant que profil <span id="result-persona-choice" style="font-weight:bold;"></span> est de :</p><br/>
 				<div class="resultat">
 					<h2 class="back icon icon_wallet">Votre capacit&eacute; d'achat : <span class="result_cap2" value="0"></span>&euro; <span class="result_h2">(hors PTZ+)</span></h2>
 					
@@ -89,14 +89,15 @@
 					<div class="simulateur-box">
 					
 						<div class="rubrique">
-							<div class="rub_contenu">
+							<div class="content-box">
 								<h2 id="couple">Vos revenus</h2>
 
-								<div class="choice-trigger">	
-									<p class="libelle">Vous empruntez :</p>
-									<div id="emp-trigger"><p class="libelle" id="btn-single" style="color:#fff;">Seul.e</p></div>
-									<div id="coemp-trigger"><p class="libelle" id="btn-couple" style="background-color:#f1f2f7; color:#000;">A deux</p></div>
-								</div>
+								<div class="profil-box">	
+										<p class="libelle">Vous empruntez :</p>
+										<input type="radio" id="emp-trigger" name="choice-trigger" onclick="yesnoCheck();" value="Seul.e" checked>
+											<label for="emp-trigger"><p for="emp-trigger" class="libelle">Seul.e</p></label>
+										<input type="radio" id="coemp-trigger" name="choice-trigger" onclick="yesnoCheck();" value="A deux">
+											<label for="coemp-trigger"><p for="coemp-trigger" class="libelle"> Adeux</p></label>								
 								<div class="choice-persona" style="display:flex; flex-wrap:nowrap;width:100%">	
 									<div class="personaemp">
 										<p class="libelle">Situation emprunteur</p>
@@ -119,27 +120,28 @@
 										<label for="personaexpat"><p for="personaexpat" class="libelle">Expatrié.e</p></label>								
 									</div>
 								
-									<div class="personacoemp" style="display:none;">
+									<div class="personacoemp" style="display:none">
 										<p class="libelle">Situation co-emprunteur</p>
-										<input type="radio" id="personacoempcdi" name="persona-type-coemp" value="coCDI">
-										<label for="indie"><p class="libelle">en CDI</p></label>
+										<input type="radio" id="personaCOcdi" name="persona-type-coemp" value="CDI">
+										<label for="personaCOcdi"><p for="personaCOcdi" class="libelle">en CDI</p></label>
 
-										<input type="radio" id="personacoempindie" name="persona-type-coemp" value="coindie">
-										<label for="indie"><p class="libelle">Indépendant.e</p></label>
+										<input type="radio" id="personaCOindie" name="persona-type-coemp" value="indépendant">
+										<label for="personaCOindie"><p for="personaCOindie" class="libelle">Indépendant.e</p></label>
 
-										<input type="radio" id="personacoempcdd" name="persona-type-coemp" value="cocdd">
-										<label for="cdd"><p class="libelle">en CDD</p></label>
+										<input type="radio" id="personaCOcdd" name="persona-type-coemp" value="CDD">
+										<label for="personaCOcdd"><p for="personaCOcdd" class="libelle">en CDD</p></label>
 
-										<input type="radio" id="personacoempjobber" name="persona-type-coemp" value="cojobber">
-										<label for="jobber"><p class="libelle">Intérimaire</p></label></label>
+										<input type="radio" id="personaCOjobber" name="persona-type-coemp" value="intérimaire">
+										<label for="personaCOjobber"><p for="personaCOjobber" class="libelle">Intérimaire</p></label><br/>
 
-										<input type="radio" id="personacoempret" name="persona-type-coemp" value="coretired"><br/>
-										<label for="retired"><p class="libelle">Retraité.e</p></label></label>			
+										<input type="radio" id="personaCOret" name="persona-type-coemp" value="retraité.e">
+										<label for="personaCOret"><p for="personaCOret" class="libelle">Retraité.e</p></label>		
 										
-										<input type="radio" id="personacoempexpat" name="persona-type-coemp" value="coexpat">
-										<label for="cdd"><p class="libelle">Expatrié</p></label></label>								
+										<input type="radio" id="personaCOexpat" name="persona-type-coemp" value="expatrié.e">
+										<label for="personaCOexpat"><p for="personaCOexpat" class="libelle">Expatrié.e</p></label>								
 									</div>							
 									
+								</div>
 								</div>
 								<div>
 									<div id="cont_rev_emp">
@@ -161,7 +163,7 @@
 								
 							</div>
 							<div class="sep_centre"></div>
-							<div class="rub_contenu">
+							<div class="content-box">
 								<h2>Vos charges hors acquisition</h2>
 								<div id="cont_rev_autres">
 									<p class="libelle">Autres revenus mensuels : <span class="info_bulle" data-title="N'inscrivez pas votre mensualit&eacute; de cr&eacute;dit immobilier, si votre projet vise &agrave; l'acquisition de votre r&eacute;sidence principale apr&egrave;s revente de votre bien actuel">i</span></p>
@@ -193,7 +195,7 @@
 
 						<div class="simulateur-box">
 							<div class="rubrique_r">
-								<div class="rub_contenu">
+								<div class="content-box">
 									
 									<div id="cont_nature_bien">
 										<input type="hidden" name="idnature" value="1">
@@ -288,9 +290,18 @@
 var tauxDD = [2,10,12,15,20,25,30];
 var tauxVA = [0.75,0.9,1,1.10,1.30,1.65,2.18];
 	
+function yesnoCheck() {
+    if (document.getElementById('coemp-trigger').checked) {
+        document.getElementById('personacoemp').style.display = 'block';
+    }
+    else document.getElementById('personacoemp').style.display = 'none';
+
+}
+
 $("input:radio[name='persona-type-emp']").click(function(){
 $("#result-persona-choice").html(this.value);
 })
+
 
 </script>
 
