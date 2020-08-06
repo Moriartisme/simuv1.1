@@ -624,13 +624,7 @@ function Calcul_capacite(){
 }
 
 
-function yesnoCheck() {
-    if (document.getElementById('coemp-trigger').checked) {
-        document.getElementById('personacoemp').style.display = 'block';
-    }
-    else document.getElementById('personacoemp').style.display = 'none';
 
-}
 
 
 $("#emp-trigger").on('focusout', mortgage_function); btn-single
