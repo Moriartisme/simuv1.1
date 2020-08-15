@@ -624,9 +624,6 @@ function Calcul_capacite(){
 }
 
 
-
-
-
 $("#emp-trigger").on('focusout', mortgage_function); btn-single
 
 
